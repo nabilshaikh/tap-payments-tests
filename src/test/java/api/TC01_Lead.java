@@ -10,6 +10,8 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import io.github.cdimascio.dotenv.Dotenv;
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 
 public class TC01_Lead {
 	
@@ -17,11 +19,13 @@ public class TC01_Lead {
 	CommonMethods cm = new CommonMethods();
 	
 	@BeforeClass
+	@Description("Verify the creation of a new lead")
     public void setup() {
         RestAssured.baseURI = dotenv.get("BASE_URI");
     }
 
     @Test(enabled=true)
+    @Step("Verify the creation of a new lead with mandatory and optional fields")
     public void testCreateLeadResourceByPassingMandatoryAndOptionalObjects() throws IOException {
         String bearerToken = dotenv.get("BEARER_TOKEN");
         
@@ -47,6 +51,7 @@ public class TC01_Lead {
     }
     
     @Test(enabled=true)
+    @Step("Verify the lead resource should not be created if the response body is blank")
     public void testCreateLeadResourceByPassingBlankResponse() throws IOException {
         String bearerToken = dotenv.get("BEARER_TOKEN");
         
@@ -69,6 +74,7 @@ public class TC01_Lead {
     }
 	
 	@Test(enabled=true)
+	@Step("Verify the lead resource should not be created if the response body is incomplete")
     public void testCreateLeadResourceByPassingIncompleteObjects() throws IOException {
         String bearerToken = dotenv.get("BEARER_TOKEN");
         

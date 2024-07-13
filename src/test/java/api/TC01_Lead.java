@@ -73,7 +73,7 @@ public class TC01_Lead {
         assertEquals(description, "Body cannot be empty or null", "Expected description does not match");
     }
 	
-	@Test(enabled=false)
+	@Test(enabled=true)
 	@Step("Verify the lead resource should not be created if the response body is incomplete")
     public void testCreateLeadResourceByPassingIncompleteObjects() throws IOException {
         String bearerToken = dotenv.get("BEARER_TOKEN");

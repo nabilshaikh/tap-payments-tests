@@ -5,8 +5,8 @@
     <classes>
       <class name="api.TC01_Lead">
         <methods>
-          <include name="testCreateNewLeadResourceByPassingIncompleteObjects"/>
           <include name="setup"/>
+          <include name="testCreateLeadResourceByPassingIncompleteObjects"/>
         </methods>
       </class> <!-- api.TC01_Lead -->
     </classes>
